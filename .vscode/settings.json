@@ -1,0 +1,21 @@
+{
+    "files.associations": {
+        "*.m": "matlab",
+        "hc32f460jeua.h": "c",
+        "cmsis_gcc.h": "c",
+        "stdint.h": "c",
+        "stddef.h": "c"
+    },
+    "C_Cpp.default.compilerPath": "C:\\Program Files (x86)\\Arm GNU Toolchain arm-none-eabi\\13.3 rel1\\bin\\arm-none-eabi-gcc",
+    "C_Cpp.default.intelliSenseMode": "gcc-arm",
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/**",
+        "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/13.3 rel1/include"  // 添加适当的头文件路径
+    ],
+    "C_Cpp.default.defines": [
+        "__GNUC__",
+        "__arm__",
+        "__arm_none_eabi__"
+    ],
+    "C_Cpp.intelliSenseEngine": "disabled"
+}
