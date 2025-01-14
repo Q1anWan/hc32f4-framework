@@ -1,0 +1,2 @@
+CompileFlags:
+  Add: [-U__clang__]

@@ -16,6 +16,7 @@ set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 project(hc_f460 C CXX ASM)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_C_STANDARD 11)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_definitions(-DHC32F460 -DUSE_DDL_DRIVER)
 
@@ -64,7 +65,7 @@ endfunction()
 
 
 # Set linker script
-set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/config/linker/HC32F460xE.ld)
+set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/Config/linker/HC32F460xE.ld)
 
 add_link_options(-specs=nano.specs)
 add_link_options(-Wl,-gc-sections,--print-memory-usage,-Map=${PROJECT_BINARY_DIR}/${PROJECT_NAME}.map)
@@ -73,11 +74,11 @@ add_link_options(-T ${LINKER_SCRIPT})
 
 # Create the executable target
 add_executable(${PROJECT_NAME}.elf)
-
+target_link_libraries(${PROJECT_NAME}.elf PUBLIC ${PROJECT_SOURCE_DIR}/Drivers/CMSIS/DSP/libCMSISDSP.a)
 # Manually add specific files
 # Include default directories
-include_directories(Core/Inc Drivers/CMSIS/Core/Include)
-file(GLOB_RECURSE MANUAL_FILES "Core/Startup/*.s")
+include_directories(Core/Inc Drivers/CMSIS/Core/Include Drivers/CMSIS/DSP/Include)
+file(GLOB_RECURSE MANUAL_FILES "Core/Startup/*.S")
 
 # List of directories to process
 set(DIRECTORIES 

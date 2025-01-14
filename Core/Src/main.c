@@ -24,6 +24,7 @@
 #include "hc32_ll.h"
 #include "hc32_ll_gpio.h"
 #include "hc32f460.h"
+#include "arm_math.h"
 /*******************************************************************************
  * Local type definitions ('typedef')
  ******************************************************************************/
@@ -153,6 +154,7 @@ int main(void) {
   while (1) {
     hello += 0.1f;
     hello2 *= hello;
+    hello += arm_sin_f32(hello2);
     GPIO_TogglePins(GPIO_PORT_A, GPIO_PIN_00);
     DDL_DelayMS(1000);
     GPIO_TogglePins(GPIO_PORT_A, GPIO_PIN_01);
