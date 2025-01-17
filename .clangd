@@ -1,2 +1,7 @@
 CompileFlags:
-  Add: [-U__clang__]
+  Add: 
+    - -U__clang__  # 取消某些默认定义
+    - --target=arm-none-eabi  # 设置目标平台为交叉编译的目标
+    - --sysroot=/opt/arm-gnu-toolchain-14.2.rel1-x86_64-arm-none-eabi  # 设置交叉编译器的 sysroot
+    - -I/opt/arm-gnu-toolchain-14.2.rel1-x86_64-arm-none-eabi/arm-none-eabi/include
+
